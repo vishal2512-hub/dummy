@@ -38,12 +38,11 @@ const dummyPosts = [
 
 const Post = () => {
   return (
-    <div className="px-6 py-6">
+<div className="px-4 py-6">
       {dummyPosts.map((post, i) => (
         <div
           key={i}
-          className="bg-white rounded-lg shadow mb-6 overflow-hidden"
-        >
+        className="bg-white rounded-lg shadow mb-6 overflow-hidden transition hover:shadow-md">
           <div
             className="h-48 bg-cover bg-center"
             style={{

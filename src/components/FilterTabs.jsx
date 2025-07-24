@@ -2,7 +2,7 @@ import React from 'react'
 
 const FilterTabs = () => {
   return (
-         <div className="flex justify-between items-center px-6 py-4 border-b bg-white">
+<div className="flex flex-col sm:flex-row justify-between gap-4 items-start sm:items-center px-4 py-3 border-b bg-white">
       <div className="space-x-4 text-gray-600 font-medium">
         <button>All Posts</button>
         <button>Jobs</button>

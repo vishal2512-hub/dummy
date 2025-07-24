@@ -12,21 +12,34 @@ const Home = () => {
   const [userName, setUserName] = useState("");
 
   return (
-    <div className={authModalOpen ? "overflow-hidden h-screen" : ""}>
-      <Header
-        setAuthModalOpen={setAuthModalOpen}
-        isLoggedIn={isLoggedIn}
-        user={{ name: userName }}
-      />
+    <div
+      className={`relative min-h-screen ${
+        authModalOpen ? "overflow-hidden h-screen" : ""
+      }`}
+    >
+      {authModalOpen && (
+        <div className="fixed inset-0 z-40 bg-black/40 backdrop-blur-sm"></div>
+      )}
 
-      <HeroSection />
-      <FilterTabs />
+      <div className="relative z-50">
+        <Header
+          setAuthModalOpen={setAuthModalOpen}
+          isLoggedIn={isLoggedIn}
+          user={{ name: userName }}
+        />
 
-      <div className="flex px-4 gap-6">
-        <div className="flex-1">
-          <Post />
+        <HeroSection />
+        <FilterTabs />
+
+        <div className="flex flex-col lg:flex-row px-4 gap-6 mt-4">
+          <div className="flex-1">
+            <Post isLoggedIn={isLoggedIn} />
+          </div>
+
+         <div className="w-full lg:w-[300px]">
+    <Sidebar isLoggedIn={isLoggedIn} />
+  </div>
         </div>
-        <Sidebar isLoggedIn={isLoggedIn} />
       </div>
 
       {authModalOpen && (
